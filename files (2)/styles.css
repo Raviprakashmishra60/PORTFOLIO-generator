@@ -1,0 +1,214 @@
+/* Generator UI styles (dark/light via CSS variables). Portfolio templates ke CSS app.js me hain. */
+:root {
+    --bg: #0e1218;
+    --panel: #161c26;
+    --fg: #e8edf4;
+    --mut: #8b97a8;
+    --bd: #263042;
+    --ac: #14b8a6;
+    --inp: #0e1218
+}
+
+[data-theme=light] {
+    --bg: #eef2f7;
+    --panel: #fff;
+    --fg: #121821;
+    --mut: #5b6778;
+    --bd: #d6dde8;
+    --inp: #f6f8fb
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+}
+
+.top {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--bd);
+    background: var(--panel);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    flex-wrap: wrap
+}
+
+.top h1 {
+    font-size: 18px;
+    margin: 0
+}
+
+.btn {
+    background: var(--inp);
+    color: var(--fg);
+    border: 1px solid var(--bd);
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit
+}
+
+.btn:hover {
+    border-color: var(--ac)
+}
+
+.btn.pri,
+.btn.tpl.on {
+    background: var(--ac);
+    color: #04201c;
+    border-color: var(--ac);
+    font-weight: 600
+}
+
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--ac);
+    outline-offset: 2px
+}
+
+.app {
+    display: grid;
+    grid-template-columns: minmax(320px, 440px) 1fr;
+    gap: 16px;
+    padding: 16px;
+    max-width: 1500px;
+    margin: auto
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--bd);
+    border-radius: 12px;
+    padding: 16px
+}
+
+.form {
+    max-height: calc(100vh - 100px);
+    overflow: auto
+}
+
+details {
+    border-top: 1px solid var(--bd);
+    padding: 10px 0
+}
+
+details:first-of-type {
+    border-top: 0
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 600
+}
+
+label {
+    display: block;
+    margin: 10px 0 4px;
+    color: var(--mut);
+    font-size: 13px
+}
+
+input,
+textarea {
+    width: 100%;
+    background: var(--inp);
+    color: var(--fg);
+    border: 1px solid var(--bd);
+    border-radius: 8px;
+    padding: 9px 10px;
+    font: inherit
+}
+
+textarea {
+    min-height: 76px;
+    resize: vertical
+}
+
+.row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center
+}
+
+.item {
+    display: grid;
+    gap: 6px;
+    border: 1px solid var(--bd);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0
+}
+
+.item .x {
+    justify-self: end;
+    font-size: 13px;
+    padding: 4px 10px
+}
+
+.add {
+    margin-top: 6px
+}
+
+.pv {
+    position: sticky;
+    top: 70px;
+    height: fit-content
+}
+
+.bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px
+}
+
+.stage {
+    background: repeating-conic-gradient(var(--bd) 0 25%, transparent 0 50%) 0 0/20px 20px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    overflow: auto
+}
+
+iframe {
+    border: 0;
+    background: #fff;
+    border-radius: 8px;
+    height: 72vh;
+    width: 100%;
+    transition: width .25s
+}
+
+@media(max-width:900px) {
+    .app {
+        grid-template-columns: 1fr
+    }
+
+    .form {
+        max-height: none
+    }
+
+    .pv {
+        position: static
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    iframe {
+        transition: none
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Portfolio Generator</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <h1>Student Portfolio Generator</h1>
+  <div class="row">
+    <button class="btn" id="sample">Load sample</button>
+    <button class="btn" id="reset">Reset</button>
+    <button class="btn" id="appTheme">Light / Dark</button>
+    <button class="btn" id="dlHtml">Download HTML</button>
+    <button class="btn pri" id="dlPdf">Download PDF</button>
+  </div>
+</header>
+<div class="app">
+  <section class="panel form">
+    <details open><summary>1. Basic info</summary>
+      <label>Full name</label><input data-f="name" placeholder=" ">
+      <label>Title / role</label><input data-f="title" placeholder="B.Tech CSE Student | Web Developer">
+      <label>About you</label><textarea data-f="about" placeholder="Apne bare mein 2-3 lines likho"></textarea>
+      <label>Profile photo (optional, max 1.5 MB)</label><input type="file" id="photo" accept="image/*">
+    </details>
+    <details><summary>2. Contact</summary>
+      <label>Email</label><input data-f="email" type="email">
+      <label>Phone</label><input data-f="phone">
+      <label>Location</label><input data-f="location">
+      <label>GitHub URL</label><input data-f="github">
+      <label>LinkedIn URL</label><input data-f="linkedin">
+    </details>
+    <details><summary>3. Skills</summary>
+      <label>Skills (comma se alag karo)</label><textarea data-f="skills" placeholder="HTML, CSS, JavaScript, Python"></textarea>
+    </details>
+    <details><summary>4. Education</summary><div id="l-education"></div><button class="btn add" data-add="education">+ Add education</button></details>
+    <details><summary>5. Experience</summary><div id="l-experience"></div><button class="btn add" data-add="experience">+ Add experience</button></details>
+    <details><summary>6. Projects</summary><div id="l-projects"></div><button class="btn add" data-add="projects">+ Add project</button></details>
+    <details open><summary>7. Template and style</summary>
+      <label>Template</label>
+      <div class="row">
+        <button class="btn tpl" data-t="minimal">Minimal</button>
+        <button class="btn tpl" data-t="modern">Modern Cards</button>
+        <button class="btn tpl" data-t="gradient">Creative Gradient</button>
+        <button class="btn tpl" data-t="sidebar">Pro Sidebar</button>
+      </div>
+      <label>Portfolio theme</label>
+      <div class="row"><button class="btn tpl" data-p="dark">Dark</button><button class="btn tpl" data-p="light">Light</button></div>
+      <label>Accent color</label><input type="color" id="accent" value="#14b8a6" style="height:40px;padding:2px">
+    </details>
+  </section>
+  <section class="panel pv">
+    <div class="bar">
+      <strong>Live preview</strong>
+      <div class="row">
+        <button class="btn" data-w="100%">Desktop</button>
+        <button class="btn" data-w="768px">Tablet</button>
+        <button class="btn" data-w="375px">Mobile</button>
+      </div>
+    </div>
+    <div class="stage"><iframe id="frame" title="Portfolio preview"></iframe></div>
+  </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
